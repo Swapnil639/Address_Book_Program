@@ -30,7 +30,7 @@ public class InputMethods {
         }
     }
 
-    public void editContact(int person,Contacts[] array) {
+    public void editContact(int person, Contacts[] array) {
         System.out.println("What you want to Edit, select from following menu :");
         System.out.println("firstName, lastName, address, city, state, zip, phoneNo, email");
         String toEdit = scanner.next();
@@ -137,9 +137,24 @@ public class InputMethods {
                 System.out.println("Invalid input");
                 break;
         }
-        for (int i = 0; i <person; i++) {
+        for (int i = 0; i < person; i++) {
             System.out.println(array[i]);
         }
     }
 
+    public void deleteContact(int person, Contacts[] array) {
+        System.out.println("Enter name you want to delete:");
+        String deleteName = scanner.next();
+        for (int i = 0; i < person; i++) {
+            if (deleteName.equals(array[i].getFirstName())) {
+                for (int j = i; j < person - 1; j++) {
+                    array[j] = array[j + 1];
+                }
+            }
+        }
+        for (int i = 0; i < person; i++) {
+            System.out.println(array[i]);
+        }
+
+    }
 }

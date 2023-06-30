@@ -12,7 +12,7 @@ public class AddressBookMain extends InputMethods {
         int input = scanner.nextInt();
         Contacts[] arr = new Contacts[input];
         do {
-            System.out.println("1.Add Contact \n2.Edit Contact");
+            System.out.println("1.Add Contact \n2.Edit Contact \n3.Delete Contact");
             int option = scanner.nextInt();
             switch (option) {
                 case 1:
@@ -20,6 +20,9 @@ public class AddressBookMain extends InputMethods {
                     break;
                 case 2:
                     addressBook.editContact(input,arr);
+                    break;
+                case 3:
+                    addressBook.deleteContact(input,arr);
                     break;
                 default:
                     System.out.println("Invalid Option");
