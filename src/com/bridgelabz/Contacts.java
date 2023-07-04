@@ -11,6 +11,7 @@ public class Contacts {
     String email;
 
     public Contacts() {
+
     }
 
     public Contacts(String firstName, String lastName, String address, String city, String state, int zip, long phoneNo, String email) {

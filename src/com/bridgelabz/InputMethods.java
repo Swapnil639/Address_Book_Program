@@ -1,134 +1,151 @@
 package com.bridgelabz;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class InputMethods {
     Scanner scanner = new Scanner(System.in);
+    List<Contacts> contactsList = new ArrayList<>();
 
-    public void addContacts(int input, Contacts[] arr) {
-        for (int i = 0; i < input; i++) {
-            System.out.println("Enter " + (i + 1) + " person First name:");
-            String firstName = scanner.next();
-            System.out.println("Enter " + (i + 1) + " person Last name:");
-            String lastName = scanner.next();
-            System.out.println("Enter " + (i + 1) + " person Address:");
-            String address = scanner.next();
-            System.out.println("Enter " + (i + 1) + " person City:");
-            String city = scanner.next();
-            System.out.println("Enter " + (i + 1) + " person State:");
-            String state = scanner.next();
-            System.out.println("Enter " + (i + 1) + " person Zip:");
-            int zip = scanner.nextInt();
-            System.out.println("Enter " + (i + 1) + " person Phone Number:");
-            long phoneNo = scanner.nextLong();
-            System.out.println("Enter " + (i + 1) + " person Email Id:");
-            String email = scanner.next();
+    public void add() {
+        Contacts person = new Contacts();
+        System.out.println("Enter person firstname : ");
+        person.firstName = scanner.next();
 
-            Contacts person = new Contacts(firstName, lastName, address, city, state, zip, phoneNo, email);
-            arr[i] = person;
-            System.out.println(arr[i]);
+        System.out.println("Enter person lastname : ");
+        person.lastName = scanner.next();
+
+        System.out.println("Enter person address : ");
+        person.address = scanner.next();
+
+        System.out.println("Enter person city : ");
+        person.city = scanner.next();
+
+        System.out.println("Enter person state : ");
+        person.state = scanner.next();
+
+        System.out.println("Enter person email : ");
+        person.email = scanner.next();
+
+        System.out.println("Enter person phoneNo : ");
+        person.phoneNo = scanner.nextLong();
+
+        System.out.println("Enter person zip : ");
+        person.zip = scanner.nextInt();
+
+        contactsList.add(person);
+        System.out.println(contactsList);
+    }
+
+    public void print() {
+        System.out.println();
+        System.out.println("*******Address Book************");
+        for (int i = 0; i < contactsList.size(); i++) {
+            System.out.println(contactsList.get(i).firstName + " " + contactsList.get(i).lastName + " " + contactsList.get(i).address + " "
+                    + contactsList.get(i).phoneNo + " " + contactsList.get(i).state + " " + contactsList.get(i).city + " " + contactsList.get(i).zip);
         }
     }
 
-    public void editContact(int person, Contacts[] array) {
+    public void edit() {
         System.out.println("What you want to Edit, select from following menu :");
-        System.out.println("firstName, lastName, address, city, state, zip, phoneNo, email");
+        System.out.println("1.firstName \n2.lastName \n3.address \n4.city \n5.state \n6.zip \n7.phoneNo \n8.email");
         String toEdit = scanner.next();
 
         switch (toEdit) {
-            case "firstName":
+            case "1":
                 System.out.println("whose name you want to Edit");
                 String oldName = scanner.next();
-                for (int j = 0; j < person; j++) {
-                    if (oldName.equals(array[j].getFirstName())) {
+                for (int j = 0; j < contactsList.size(); j++) {
+                    if (oldName.equals(contactsList.get(j).getFirstName())) {
                         System.out.println("enter new firstname :");
                         String newName = scanner.next();
-                        array[j].setFirstName(newName);
+                        contactsList.get(j).setFirstName(newName);
                     }
                 }
                 System.out.println("Successfully done");
                 break;
-            case "lastName":
+            case "2":
                 System.out.println("whose lastname you want to Edit");
                 String oldLastname = scanner.next();
-                for (int j = 0; j < person; j++) {
-                    if (oldLastname.equals(array[j].getLastName())) {
+                for (int j = 0; j < contactsList.size(); j++) {
+                    if (oldLastname.equals(contactsList.get(j).getLastName())) {
                         System.out.println("enter new lastname :");
                         String newName = scanner.next();
-                        array[j].setLastName(newName);
+                        contactsList.get(j).setLastName(newName);
                     }
                 }
                 System.out.println("Successfully done");
                 break;
 
-            case "address":
+            case "3":
                 System.out.println("whose address you want to Edit");
                 String oldAddress = scanner.next();
-                for (int j = 0; j < person; j++) {
-                    if (oldAddress.equals(array[j].getAddress())) {
+                for (int j = 0; j < contactsList.size(); j++) {
+                    if (oldAddress.equals(contactsList.get(j).getAddress())) {
                         System.out.println("enter new address :");
                         String newAddress = scanner.next();
-                        array[j].setAddress(newAddress);
+                        contactsList.get(j).setAddress(newAddress);
                     }
                 }
                 System.out.println("Successfully done");
                 break;
-            case "city":
-                System.out.println("whose City you want to Edit");
+            case "4":
+                System.out.println("whose city you want to Edit");
                 String oldCity = scanner.next();
-                for (int j = 0; j < person; j++) {
-                    if (oldCity.equals(array[j].getCity())) {
+                for (int j = 0; j < contactsList.size(); j++) {
+                    if (oldCity.equals(contactsList.get(j).getCity())) {
                         System.out.println("enter new City :");
                         String newCity = scanner.next();
-                        array[j].setCity(newCity);
+                        contactsList.get(j).setCity(newCity);
                     }
                 }
                 System.out.println("Successfully done");
                 break;
-            case "state":
-                System.out.println("whose State you want to Edit");
+            case "5":
+                System.out.println("whose state you want to Edit");
                 String oldState = scanner.next();
-                for (int j = 0; j < person; j++) {
-                    if (oldState.equals(array[j].getState())) {
+                for (int j = 0; j < contactsList.size(); j++) {
+                    if (oldState.equals(contactsList.get(j).getState())) {
                         System.out.println("enter new state :");
                         String newState = scanner.next();
-                        array[j].setState(newState);
+                        contactsList.get(j).setState(newState);
                     }
                 }
                 System.out.println("Successfully done");
                 break;
-            case "zip":
+            case "6":
                 System.out.println("whose zip you want to Edit");
                 int oldZip = scanner.nextInt();
-                for (int j = 0; j < person; j++) {
-                    if (oldZip == array[j].getZip()) {
+                for (int j = 0; j < contactsList.size(); j++) {
+                    if (oldZip == contactsList.get(j).getZip()) {
                         System.out.println("enter new zip :");
                         int newZip = scanner.nextInt();
-                        array[j].setZip(newZip);
+                        contactsList.get(j).setZip(newZip);
                     }
                 }
                 System.out.println("Successfully done");
                 break;
-            case "phoneNo":
+            case "7":
                 System.out.println("whose phone number you want to Edit");
                 long oldPhone = scanner.nextLong();
-                for (int j = 0; j < person; j++) {
-                    if (oldPhone == array[j].getPhoneNo()) {
+                for (int j = 0; j < contactsList.size(); j++) {
+                    if (oldPhone == contactsList.get(j).getPhoneNo()) {
                         System.out.println("enter new phone number :");
                         long newPhone = scanner.nextLong();
-                        array[j].setPhoneNo(newPhone);
+                        contactsList.get(j).setPhoneNo(newPhone);
                     }
                 }
                 System.out.println("Successfully done");
                 break;
-            case "email":
+            case "8":
                 System.out.println("whose email you want to Edit");
                 String oldEmail = scanner.next();
-                for (int j = 0; j < person; j++) {
-                    if (oldEmail.equals(array[j].getEmail())) {
-                        System.out.println("enter new Email :");
+                for (int j = 0; j < contactsList.size(); j++) {
+                    if (oldEmail.equals(contactsList.get(j).getEmail())) {
+                        System.out.println("enter new email :");
                         String newEmail = scanner.next();
-                        array[j].setEmail(newEmail);
+                        contactsList.get(j).setEmail(newEmail);
                     }
                 }
                 System.out.println("Successfully done");
@@ -137,24 +154,29 @@ public class InputMethods {
                 System.out.println("Invalid input");
                 break;
         }
-        for (int i = 0; i < person; i++) {
-            System.out.println(array[i]);
+        System.out.println(contactsList);
+    }
+
+    public void delete() {
+        System.out.println("Enter name you want to delete:");
+        String deleteName = scanner.next();
+        for (int i = 0; i < contactsList.size(); i++) {
+            if (deleteName.equals(contactsList.get(i).getFirstName())) {
+                contactsList.remove(i);
+            }
+        }
+        for (int i = 0; i < contactsList.size(); i++) {
+            System.out.println(contactsList.get(i).getFirstName() + " " + contactsList.get(i).getLastName() + " " + contactsList.get(i).getAddress() + " "
+                    + contactsList.get(i).getCity() + " " + contactsList.get(i).getState() + " " + contactsList.get(i).getEmail() + " " + contactsList.get(i).getZip() + " " + contactsList.get(i).getPhoneNo());
         }
     }
 
-    public void deleteContact(int person, Contacts[] array) {
-        System.out.println("Enter name you want to delete:");
-        String deleteName = scanner.next();
-        for (int i = 0; i < person; i++) {
-            if (deleteName.equals(array[i].getFirstName())) {
-                for (int j = i; j < person - 1; j++) {
-                    array[j] = array[j + 1];
-                }
-            }
+    public void addMultipleContact() {
+        System.out.println("Enter Number of Contacts to Add into Contact Book");
+        int number=scanner.nextInt();
+        for (int i = 0; i <number; i++) {
+            add();
+            System.out.println(i + 1 + " Contact added successfully");
         }
-        for (int i = 0; i < person; i++) {
-            System.out.println(array[i]);
-        }
-
     }
 }
