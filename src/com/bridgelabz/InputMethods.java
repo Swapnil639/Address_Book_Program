@@ -1,44 +1,46 @@
 package com.bridgelabz;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class InputMethods {
     Scanner scanner = new Scanner(System.in);
-    List<Contacts> contactsList = new ArrayList<>();
 
-    public void add() {
-        Contacts person = new Contacts();
-        System.out.println("Enter person firstname : ");
-        person.firstName = scanner.next();
+    public void add(List<Contacts> contactsList) {
+        System.out.println("Enter Number of Contacts to Add into Contact Book");
+        int number=scanner.nextInt();
+        for (int i = 0; i <number; i++) {
+            Contacts person = new Contacts();
+            System.out.println("Enter person firstname : ");
+            person.firstName = scanner.next();
 
-        System.out.println("Enter person lastname : ");
-        person.lastName = scanner.next();
+            System.out.println("Enter person lastname : ");
+            person.lastName = scanner.next();
 
-        System.out.println("Enter person address : ");
-        person.address = scanner.next();
+            System.out.println("Enter person address : ");
+            person.address = scanner.next();
 
-        System.out.println("Enter person city : ");
-        person.city = scanner.next();
+            System.out.println("Enter person city : ");
+            person.city = scanner.next();
 
-        System.out.println("Enter person state : ");
-        person.state = scanner.next();
+            System.out.println("Enter person state : ");
+            person.state = scanner.next();
 
-        System.out.println("Enter person email : ");
-        person.email = scanner.next();
+            System.out.println("Enter person email : ");
+            person.email = scanner.next();
 
-        System.out.println("Enter person phoneNo : ");
-        person.phoneNo = scanner.nextLong();
+            System.out.println("Enter person phoneNo : ");
+            person.phoneNo = scanner.nextLong();
 
-        System.out.println("Enter person zip : ");
-        person.zip = scanner.nextInt();
+            System.out.println("Enter person zip : ");
+            person.zip = scanner.nextInt();
 
-        contactsList.add(person);
-        System.out.println(contactsList);
+            contactsList.add(person);
+            System.out.println(contactsList);
+        }
     }
 
-    public void print() {
+    public void print(List<Contacts> contactsList) {
         System.out.println();
         System.out.println("*******Address Book************");
         for (int i = 0; i < contactsList.size(); i++) {
@@ -47,7 +49,7 @@ public class InputMethods {
         }
     }
 
-    public void edit() {
+    public void edit(List<Contacts> contactsList) {
         System.out.println("What you want to Edit, select from following menu :");
         System.out.println("1.firstName \n2.lastName \n3.address \n4.city \n5.state \n6.zip \n7.phoneNo \n8.email");
         String toEdit = scanner.next();
@@ -157,7 +159,7 @@ public class InputMethods {
         System.out.println(contactsList);
     }
 
-    public void delete() {
+    public void delete(List<Contacts> contactsList) {
         System.out.println("Enter name you want to delete:");
         String deleteName = scanner.next();
         for (int i = 0; i < contactsList.size(); i++) {
@@ -168,15 +170,6 @@ public class InputMethods {
         for (int i = 0; i < contactsList.size(); i++) {
             System.out.println(contactsList.get(i).getFirstName() + " " + contactsList.get(i).getLastName() + " " + contactsList.get(i).getAddress() + " "
                     + contactsList.get(i).getCity() + " " + contactsList.get(i).getState() + " " + contactsList.get(i).getEmail() + " " + contactsList.get(i).getZip() + " " + contactsList.get(i).getPhoneNo());
-        }
-    }
-
-    public void addMultipleContact() {
-        System.out.println("Enter Number of Contacts to Add into Contact Book");
-        int number=scanner.nextInt();
-        for (int i = 0; i <number; i++) {
-            add();
-            System.out.println(i + 1 + " Contact added successfully");
         }
     }
 }
