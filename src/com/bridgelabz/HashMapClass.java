@@ -21,7 +21,7 @@ public class HashMapClass {
             int choice = 0 ;
             while(choice!=5){
                 System.out.println("What do you want to perform inside " + bookName+ " book:");
-                System.out.println("1.Add\n2.Edit\n3.Delete\n4.Print\n5.Stop");
+                System.out.println("1.Add\n2.Edit\n3.Delete\n4.Print\n5.Search\n6.Stop");
                 try {
                     choice=scanner.nextInt();
                 }catch (Exception e){
@@ -37,7 +37,9 @@ public class HashMapClass {
                         break;
                     case 4:  inputMethods.print(array);
                         break;
-                    case 5:  System.out.println("\nThank You for " + bookName + " Book \n");
+                    case 5: inputMethods.searchContactOrState(array);
+                        break;
+                    case 6:  System.out.println("\nThank You for " + bookName + " Book \n");
                         break;
                 }
                 hashMap.put(bookName,array);

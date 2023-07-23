@@ -1,7 +1,5 @@
 package com.bridgelabz;
 
-import org.ietf.jgss.GSSManager;
-
 import java.util.List;
 import java.util.Scanner;
 
@@ -185,6 +183,18 @@ public class InputMethods {
         for (int i = 0; i < contactsList.size(); i++) {
             System.out.println(contactsList.get(i).getFirstName() + " " + contactsList.get(i).getLastName() + " " + contactsList.get(i).getAddress() + " "
                     + contactsList.get(i).getCity() + " " + contactsList.get(i).getState() + " " + contactsList.get(i).getEmail() + " " + contactsList.get(i).getZip() + " " + contactsList.get(i).getPhoneNo());
+        }
+    }
+
+    public void searchContactOrState(List<Contacts> contactsList) {
+        System.out.println("Enter the name of city or state");
+        String input = scanner.next();
+        for (Contacts contact : contactsList) {
+            if (contact.getCity().equals(input) || contact.getState().equals(input)){
+                System.out.println(contact);
+            }else {
+                System.out.println("Not found in the address book");
+            }
         }
     }
 }
