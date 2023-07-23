@@ -1,5 +1,7 @@
 package com.bridgelabz;
 
+import org.ietf.jgss.GSSManager;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,28 +14,41 @@ public class InputMethods {
         for (int i = 0; i <number; i++) {
             Contacts person = new Contacts();
             System.out.println("Enter person firstname : ");
-            person.firstName = scanner.next();
+            String firstName = scanner.next();
+            boolean isDuplicate=contactsList.stream().anyMatch(p->p.getFirstName().equals(firstName));
+            if (isDuplicate){
+                System.out.println("all ready save the contact ");
+                return;
+            }
+            person.setFirstName(firstName);
 
             System.out.println("Enter person lastname : ");
-            person.lastName = scanner.next();
+            String lastName = scanner.next();
+            person.setLastName(lastName);
 
             System.out.println("Enter person address : ");
-            person.address = scanner.next();
+            String address = scanner.next();
+            person.setAddress(address);
 
             System.out.println("Enter person city : ");
-            person.city = scanner.next();
+            String city = scanner.next();
+            person.setCity(city);
 
             System.out.println("Enter person state : ");
-            person.state = scanner.next();
+            String state = scanner.next();
+            person.setState(state);
 
             System.out.println("Enter person email : ");
-            person.email = scanner.next();
+            String email = scanner.next();
+            person.setEmail(email);
 
             System.out.println("Enter person phoneNo : ");
-            person.phoneNo = scanner.nextLong();
+            long phoneNo = scanner.nextLong();
+            person.setPhoneNo(phoneNo);
 
             System.out.println("Enter person zip : ");
-            person.zip = scanner.nextInt();
+            int zip = scanner.nextInt();
+            person.setZip(zip);
 
             contactsList.add(person);
             System.out.println(contactsList);

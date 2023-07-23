@@ -28,7 +28,7 @@ public class HashMapClass {
                     System.out.println("Input mismatch Exception : "+e);
                     break;
                 }
-                switch (choice){
+                switch (choice){ 
                     case 1 : inputMethods.add(array);
                         break;
                     case 2 : inputMethods.edit(array);
